@@ -280,6 +280,85 @@
       text-decoration: none;
     }
 
+
+    .artist-action {
+      position: relative;
+      min-width: 250px;
+      padding-top: 108px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .artist-pointer {
+      position: absolute;
+      top: 0;
+      right: -2px;
+      width: 225px;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .artist-pointer-text {
+      margin: 0 0 2px;
+      color: #5f574d;
+      font-size: 0.98rem;
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: 0.025em;
+    }
+
+    .artist-pointer-text span {
+      display: block;
+      color: #7a7165;
+      font-size: 0.88em;
+      margin-top: 2px;
+    }
+    .artist-pointer-arrow {
+      display: block;
+      width: 178px;
+      height: auto;
+
+      margin-top: -20px;
+      margin-left:-30px;
+      margin-right: 0;
+      margin-bottom: 0;
+
+      overflow: visible;
+      animation: arrow-peke 1.55s infinite ease-in-out;
+      filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.10));
+    }
+
+    .artist-pointer-arrow .arrow-main {
+      fill: #d94335;
+    }
+
+    .artist-pointer-arrow .crumb-red {
+      fill: #d94335;
+    }
+
+    .artist-pointer-arrow .crumb-yellow {
+      fill: #f2c230;
+    }
+
+    @keyframes arrow-peke {
+      0%, 100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+
+      50% {
+        opacity: 0.62;
+        transform: translate(5px, 4px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .artist-pointer-arrow {
+        animation: none;
+      }
+    }
+
     .footprint-links {
       display: flex;
       flex-wrap: wrap;
@@ -351,6 +430,33 @@
         gap: 18px;
       }
 
+
+      .artist-action {
+        min-width: 250px;
+        width: 250px;
+        padding-top: 108px;
+
+        justify-self: end;
+        justify-content: flex-end;
+      }
+
+      .artist-pointer {
+        left: auto;
+        right: -2px;
+
+        width: 225px;
+        text-align: center;
+      }
+
+      .artist-pointer-arrow {
+        width: 178px;
+
+        margin-top: -20px;
+        margin-left: -30px;
+        margin-right: 0;
+        margin-bottom: 0;
+      }
+
       .button-link {
         justify-self: start;
       }
@@ -395,8 +501,9 @@
           <p>
             Some experiments become songs.
             Some songs become experiments.
-          <p>Joy is in the space between.</p>
           </p>
+          
+          <p>Joy is in the space between.</p>
         </div>
 
         <blockquote class="workshop-quote">
@@ -450,10 +557,43 @@
             </p>
           </div>
 
-          <!-- Adjust this path if the artist site uses another folder or address. -->
-          <a class="button-link" href="./artists/omni8/">
-            Visit Omni8
-          </a>
+          <div class="artist-action">
+            <div class="artist-pointer" aria-hidden="true">
+              <p class="artist-pointer-text">
+                LOOKING FOR THE MUSIC?
+                <span>OMNI8 IS THIS WAY</span>
+              </p>
+
+              <!-- A normal, broad arrow pointing down-right.
+                   Only the tail dissolves into small red/yellow circles. -->
+              <svg class="artist-pointer-arrow"
+                viewBox="0 0 170 95"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- dissolved tail -->
+                <circle class="crumb-red" cx="7" cy="22" r="5.2" />
+                <circle class="crumb-yellow" cx="16" cy="13" r="3.8" />
+                <circle class="crumb-red" cx="19" cy="29" r="3.2" />
+                <circle class="crumb-yellow" cx="5" cy="37" r="2.8" />
+                <circle class="crumb-red" cx="27" cy="19" r="2.5" />
+
+                <!-- ordinary broad arrow, pointing down-right -->
+                <path class="arrow-main"
+                  d="M 25 19
+                     L 101 54
+                     L 108 37
+                     L 158 82
+                     L 93 89
+                     L 99 71
+                     L 20 35
+                     Z" />
+              </svg>
+            </div>
+
+            <!-- Adjust this path if the artist site uses another folder or address. -->
+            <a class="button-link" href="./artists/omni8/">
+              Visit Omni8
+            </a>
+          </div>
         </article>
       </section>
 
