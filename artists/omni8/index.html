@@ -18,8 +18,8 @@
       --quiet-text: #8a8174;
       --line: #cfc7b8;
       --link: #4d5f7a;
-      --miro-yellow: #dca90f;
-      --miro-red: #b83a30;
+      --agr-yellow: #dca90f;
+      --agr-red: #b83a30;
       --shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
       --small-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     }
@@ -142,12 +142,12 @@
 
     .title-accent::before {
       width: 56px;
-      background: var(--miro-yellow);
+      background: var(--agr-yellow);
     }
 
     .title-accent::after {
       width: 32px;
-      background: var(--miro-red);
+      background: var(--agr-red);
       transform: rotate(5deg);
     }
 
@@ -212,7 +212,7 @@
       margin: 34px auto 0;
       padding: 24px 28px;
       background: rgba(255, 250, 240, 0.72);
-      border-left: 4px solid var(--miro-yellow);
+      border-left: 4px solid var(--agr-yellow);
       border-radius: 4px 10px 10px 4px;
       color: #5f574d;
       font-style: italic;
@@ -258,53 +258,53 @@
       gap: 10px;
     }
 
-    /* Togskinnene som holder alle coverne */
+    /* Horizontal track containing all release covers */
     .release-slider {
       display: flex;
       overflow-x: auto;
       scroll-behavior: smooth;
       scroll-snap-type: x mandatory;
-      /* Magnet-effekt */
+      /* Snap-to-card effect */
       gap: 20px;
     }
 
-    /* Selve vognene (hvert enkelt cover-kort) */
-    /* I hovedstrukturen din (gjelder for PC/laptop): */
-    /* 1. Gjør det engelske hintet mindre beskjedent */
+    /* Individual release cards */
+    /* Main desktop/laptop layout */
+    /* 1. Increase the visibility of the release hint */
     .release-hint {
-      color: var(--miro-yellow);
-      /* Bruker din Miro-gul for å fange blikket! */
+      color: var(--agr-yellow);
+      /* Use the agreed yellow accent to draw attention */
       font-size: 1.1rem;
-      /* Litt større skrift */
+      /* Slightly larger text */
       font-weight: bold;
-      /* Gjør teksten fet */
+      /* Bold text */
       letter-spacing: 0.5px;
-      /* Litt luft mellom bokstavene */
+      /* Add a little letter spacing */
       margin: -4px 0 28px;
-      /* Plassering */
+      /* Positioning */
       animation: hint-blink 1.8s infinite ease-in-out;
     }
 
-    /* 2. Gi selve cover-kortet en standard skygge og gjør det klart for animasjon */
+    /* 2. Add a default shadow and prepare the release card for animation */
     .release-card {
 
       scroll-snap-align: center;
 
       cursor: pointer;
-      /* Gjør musestubben om til en "klikke-hånd" */
+      /* Show a pointer cursor for clickable cards */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      /* Sørger for at løftet glir mykt! */
+      /* Smooth the lift animation */
       box-shadow: var(--small-shadow);
-      /* Starte med en liten skygge */
+      /* Start with a subtle shadow */
       border-radius: 12px;
-      /* Matcher video-hjørnene dine */
+      /* Match the rounded media corners */
       overflow: hidden;
 
       flex: 0 0 clamp(230px, 72vw, 320px);
       min-width: clamp(230px, 72vw, 320px);
     }
 
-    /* 3. MAGIEN: Hva skjer når musa holdes over (Hover) eller brukes med tastatur */
+    /* 3. Hover and keyboard-focus interaction */
     .release-card:focus-visible {
       transform: translateY(-8px) scale(1.03);
       box-shadow: var(--shadow);
@@ -353,7 +353,7 @@
 
     .slider-button:hover,
     .slider-button:focus-visible {
-      border-color: var(--miro-yellow);
+      border-color: var(--agr-yellow);
       transform: translateY(-1px);
     }
 
@@ -503,7 +503,7 @@
     }
 
 
-    /* Desktop */
+    /* Desktop layout */
     @media (min-width: 721px) {
       .release-card {
         width: 320px;
@@ -534,14 +534,14 @@
       max-height: 85vh;
     }
 
-    /* Den mørke bakgrunnen som legger seg over resten av siden */
+    /* Dark backdrop covering the rest of the page */
     dialog::backdrop {
       background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(5px);
-      /* Gjør bakgrunnen litt uklar */
+      /* Slightly blur the backdrop */
     }
 
-    /* Sørger for at 9:16 videoen ikke blir høyere enn skjermen */
+    /* Keep 9:16 video within the viewport height */
     dialog video {
       display: block;
       max-width: 100%;
@@ -638,7 +638,7 @@
 
       <section aria-labelledby="releases-title">
         <h2 id="releases-title">Releases</h2>
-        <!-- Det engelske hintet: -->
+        <!-- Release interaction hint -->
         <p class="release-hint">Click a cover to explore the release</p>
         <div class="release-carousel">
           <button class="slider-button slider-prev" type="button" aria-label="Previous release">&lsaquo;</button>
@@ -688,7 +688,7 @@
 
               <div class="release-copy">
                 <h3>Omning at 8</h3>
-                <p class="release-meta">Single · Omni8 · The latest release!</p>
+                <p class="release-meta">Single · Omni8 </p>
                 <p class="release-description">
                   Sometimes... my boots are not made for walking.
                 </p>
@@ -700,9 +700,9 @@
 
               <div class="release-copy">
                 <h3>Any Rain at 8</h3>
-                <p class="release-meta">Single · Omni8 · Coming soon!</p>
+                <p class="release-meta">Single · Omni8 · The latest release!</p>
                 <p class="release-description">
-                 Dance Anyway · Dance Any Way · Dance Any Place.
+                  Dance Anyway · Dance Any Way · Dance Any Place.
                 </p>
               </div>
             </article>
@@ -711,8 +711,8 @@
 
           <button class="slider-button slider-next" type="button" aria-label="Next release">&rsaquo;</button>
         </div>
-        <!-- DETTE ER POPUP-VINDUET (Deles på tvers av alle) -->
-        <!-- <dialog> er en moderne, innebygd tag for sprett-opp-vinduer -->
+        <!-- Shared media popup -->
+        <!-- <dialog> provides a native popup container -->
         <dialog id="media-modal">
           <button id="lukk-knapp">Lukk &times;</button>
           <div id="modal-innhold"></div>
@@ -734,7 +734,7 @@
                 rel="noopener noreferrer" aria-label="Artist Omni8 on TIDAL">TIDAL</a>
             </li>
             <li>
-              <a class="platform-link" href="https://www.youtube.com/channel/UC5IrunuzB7_6Or0SSv4reGw" target="_blank"
+              <a class="platform-link" href="https://www.youtube.com/@Omni8Artist" target="_blank"
                 rel="noopener noreferrer" aria-label="Artist Omni8 on YouTube">YouTube</a>
             </li>
 
@@ -747,9 +747,11 @@
         <h2 id="references-title">Elsewhere</h2>
 
         <p>
-          The Omni8 Topic channel is established on YouTube, but it is not yet
-          connected to the Omni8 artist channel, which is currently under construction.
-          A link to the artist channel will be added here when it is ready.
+          The Omni8 artist channel is now live on YouTube.
+          Official releases also appear on the separate
+          <a href="https://www.youtube.com/channel/UC5IrunuzB7_6Or0SSv4reGw" target="_blank" rel="noopener noreferrer">
+            Omni8 Topic channel
+          </a>.
         </p>
 
         <p>
@@ -807,33 +809,33 @@
     nextRelease.addEventListener("click", () => {
       releaseSlider.scrollBy({ left: releaseStep(), behavior: "smooth" });
     });
-    // 1. Hent felles-elementene fra DOM
+    // 1. Get the shared DOM elements
     const alleKort = document.querySelectorAll('.release-card');
     const modalen = document.getElementById('media-modal');
     const modalInnhold = document.getElementById('modal-innhold');
     const lukkKnapp = document.getElementById('lukk-knapp');
 
-    // 2. Løp gjennom alle cover-instansene
+    // 2. Iterate through all release cards
     for (const kort of alleKort) {
 
       kort.addEventListener('click', function () {
-        // Hent ut data-attributtene til akkurat dette kortet
+        // Read the media attributes for the selected card
         const filType = kort.getAttribute('data-type');
         const filKilde = kort.getAttribute('data-src');
 
-        // Tøm vinduet for gammelt innhold først
+        // Clear previous modal content
         modalInnhold.innerHTML = '';
 
-        // Sjekk "klassen/typen" til mediefilen (Polymorfisme i praksis!)
+        // Select the media renderer based on file type
         if (filType === 'video') {
-          // Lag en video-tag for 9:16 MP4
+          // Create a video element for 9:16 MP4
           modalInnhold.innerHTML = `
         <video id="aktiv-spiller" controls playsinline autoplay>
           <source src="${filKilde}" type="video/mp4">
         </video>
       `;
         } else if (filType === 'audio') {
-          // Lag en ren lyd-tag for MP3, og vis coveret inni modalen også
+          // Create an audio element for MP3 and show the cover in the modal
           const bildeSrc = kort.querySelector('img').src;
           modalInnhold.innerHTML = `
         <img src="${bildeSrc}" class="modal-cover">
@@ -843,22 +845,22 @@
       `;
         }
 
-        // Sett volumet på den nye spilleren som ble opprettet
+        // Set the initial volume for the active player
         const spiller = document.getElementById('aktiv-spiller');
         if (spiller) spiller.volume = 0.56;
 
-        // Åpne det innebygde popup-vinduet
+        // Open the native modal dialog
         modalen.showModal();
       });
     }
 
-    // 3. Håndter lukking av vinduet (og stopp lyden/videoen!)
+    // 3. Close the modal and stop active media
     lukkKnapp.addEventListener('click', () => {
       modalen.close();
-      modalInnhold.innerHTML = ''; // Sletter spilleren så lyden stopper helt
+      modalInnhold.innerHTML = ''; // Remove the player so playback stops completely
     });
 
-    // Lukker også hvis man trykker på "Esc" på tastaturet (innebygd i <dialog>)
+    // Also clear the player when <dialog> is closed with Esc
     modalen.addEventListener('cancel', () => {
       modalInnhold.innerHTML = '';
     });
