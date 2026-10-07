@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="icon" type="image/png" href="../../Resources/Omni8RecordsSymbol.png">
   <title>Omni8 | Artist</title>
   <meta name="description"
     content="Omni8 is an independent artist project emerging from the Omni8 Records music workshop.">
@@ -110,17 +110,24 @@
     }
 
     .site-banner {
+
       display: block;
-      width: 100%;
+
+      width: 94%;
+
+      margin: 12px auto 0;
+
       border-radius: 14px;
+
       box-shadow: var(--shadow);
+
     }
 
     .site-title {
-      margin: 28px 0 0;
-      font-size: clamp(3rem, 9vw, 5.5rem);
-      line-height: 1;
-      letter-spacing: -0.045em;
+      margin: 42px 0 0;
+      font-size: clamp(2.1rem, 6vw, 3.7rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
     }
 
     .title-accent {
@@ -553,7 +560,7 @@
       border-radius: 8px;
     }
 
-    #lukk-knapp {
+    #close-btn {
       float: right;
       background: none;
       border: none;
@@ -727,7 +734,7 @@
         <!-- Shared media popup -->
         <!-- <dialog> provides a native popup container -->
         <dialog id="media-modal">
-          <button id="lukk-knapp">Lukk &times;</button>
+          <button id="close-btn">Close &times;</button>
           <div id="modal-innhold"></div>
         </dialog>
       </section>
@@ -826,7 +833,7 @@
     const alleKort = document.querySelectorAll('.release-card');
     const modalen = document.getElementById('media-modal');
     const modalInnhold = document.getElementById('modal-innhold');
-    const lukkKnapp = document.getElementById('lukk-knapp');
+    const lukkKnapp = document.getElementById('close-btn');
 
     // 2. Iterate through all release cards
     for (const kort of alleKort) {
@@ -843,7 +850,7 @@
         if (filType === 'video') {
           // Create a video element for 9:16 MP4
           modalInnhold.innerHTML = `
-        <video id="aktiv-spiller" controls playsinline autoplay>
+        <video id="aktiv-spiller" controls  controlsList="nodownload" playsinline autoplay>
           <source src="${filKilde}" type="video/mp4">
         </video>
       `;
@@ -852,7 +859,7 @@
           const bildeSrc = kort.querySelector('img').src;
           modalInnhold.innerHTML = `
         <img src="${bildeSrc}" class="modal-cover">
-        <audio id="aktiv-spiller" controls autoplay style="width: 100%;">
+        <audio id="aktiv-spiller" controls  controlsList="nodownload" autoplay style="width: 100%;">
           <source src="${filKilde}" type="audio/mpeg">
         </audio>
       `;
