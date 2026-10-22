@@ -851,6 +851,12 @@
     const previousRelease = document.querySelector(".slider-prev");
     const nextRelease = document.querySelector(".slider-next");
 
+    // Start karusellen helt til venstre (nyeste release)
+    requestAnimationFrame(() => {
+      releaseSlider.scrollLeft =
+        releaseSlider.clientWidth - releaseSlider.scrollWidth;
+    });
+
     function releaseStep() {
       const card = releaseSlider.querySelector(".release-card");
       const gap = 20;
